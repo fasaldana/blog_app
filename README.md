@@ -1,24 +1,62 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ School library
 
-Things you may want to cover:
+> Ruby app that allows creation and storage of books, the people who have rented and the rentals.
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby
+- Github
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get a local copy up and running follow these simple example steps.
 
-* Database initialization
+## Prerequisites
 
-* How to run the test suite
+- Have a version of Ruby installed in your local environment.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup
 
-* Deployment instructions
+- Clone the repo.
+`$ git clone https://github.com/fasaldana/blog_app.git`
+$ cd blog_app
 
-* ...
+## Run
+- check the ruby version being used and install it if it is not the same with that of the local machine
+- set up database direct them to the `config/database.yml` file
+- run `bundle install`
+- run `npm install` or `yarn install`
+- run `rails db:create`
+- run `rails db:migrate`
+- run `rails db:seed` if there is data in the seed
+- run `rails s` to start the server locally
+
+## Authors
+
+👤 **Fernando Saldaña**
+
+- GitHub: [@fasaldana](https://github.com/fasaldana)
+- Twitter: [@Fernandosal98](https://twitter.com/Fernandosal98)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/fernando-saldana-8bbb89228/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
