@@ -9,6 +9,8 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe 'GET #show' do
+    before(:each) { get user_path(1) }
+    
     it 'returns http success' do
       get :show
       expect(response).to have_http_status(:success)
