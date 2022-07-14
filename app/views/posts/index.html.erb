@@ -1,2 +1,28 @@
-<h1>Post#index</h1>
-<p>Post index page</p>
+
+<% @posts.each do |post| %>
+  <div class="post-container">
+    <div class="post-title">
+      <h4> <%= post.title %> </h4>
+    </div>
+    <div class="post-body">
+      <p> <%= post.text %> </p>
+    </div>
+    <div class="post-comments">
+      <p> <%= post.comments_counter %> comments </p>
+      <p> <%= post.likes_counter %> likes </p>
+    </div>
+  </div>
+
+  <div class="comments">
+    <% post.comments.each do |comment| %>
+      <div class="comment-container">
+        <div class="comment-name">
+          <h4> <%= comment.author.name %> </h4>
+        </div>
+        <div class="comment-body">
+          <p> <%= comment.text %> </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
