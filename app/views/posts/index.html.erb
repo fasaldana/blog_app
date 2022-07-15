@@ -8,21 +8,26 @@
       <p> <%= post.text %> </p>
     </div>
     <div class="post-comments">
-      <p> <%= post.comments_counter %> comments </p>
-      <p> <%= post.likes_counter %> likes </p>
+      <p> <%= post.comments_counter %> comments <%= post.likes_counter %> likes </p>
     </div>
   </div>
 
   <div class="comments">
-    <% post.comments.each do |comment| %>
+    <% post.five_most_recent_comments.each do |comment| %>
       <div class="comment-container">
         <div class="comment-name">
-          <h4> <%= comment.author.name %> </h4>
+          <h4>  </h4>
         </div>
         <div class="comment-body">
-          <p> <%= comment.text %> </p>
+          <p> <%= comment.author.name %> - <%= comment.text %> </p>
         </div>
       </div>
     <% end %>
   </div>
 <% end %>
+
+<div class="btn-container">
+    <button class="see-all-btn">
+        Pagination
+    </button>
+</div>

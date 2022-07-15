@@ -1,6 +1,7 @@
 <div class="post-container">
     <div class="post-title">
         <h4> Post #<%= @post.id %> by <%= @post.author.name %> </h4>
+        <h4> <%= @post.title %> </h4>
     </div>
     <div class="post-comments">
         <p> <%= @post.comments_counter %> comments <%= @post.likes_counter %> likes </p>
@@ -13,7 +14,7 @@
 <div class="post-comments">
     <h3>Comments</h3>
     <% @post.comments.each do |comment| %>
-        <div class="comment-container">
+        <div class="comments">
             <div class="comment-author">
                 <p> <%= comment.author.name %> </p>
             </div>
