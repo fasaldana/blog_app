@@ -1,7 +1,7 @@
 <% @users.each do |user| %>
     <div class="user-container">
         <div class="user-avatar">
-            <%= user.photo %>
+            <img src="<%= user.photo %>" alt="<%= user.name %>" class="user-pic">
         </div>
         <div class="user-name">
             <h2>User name: <%= user.name %></h2>
@@ -9,6 +9,5 @@
         <div class="num-posts">
             <p> number of posts: <%= user.posts_counter %> </p>
         <div>
-        user.id: <%= user.id %>
     </div>
 <% end %>
