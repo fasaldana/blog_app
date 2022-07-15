@@ -1,2 +1,23 @@
-<h1>Post#show</h1>
-<p>Post show page</p>
+<div class="post-container">
+    <div class="post-title">
+        <h4> Post #<%= @post.id %> by <%= @post.author.name %> </h4>
+        <h4> <%= @post.title %> </h4>
+    </div>
+    <div class="post-comments">
+        <p> <%= @post.comments_counter %> comments <%= @post.likes_counter %> likes </p>
+    </div>
+    <div class="post-body">
+        <p> <%= @post.text %> </p>
+    </div>
+</div>
+
+<div class="comments-container">
+    <h3>Comments</h3>
+    <% @post.comments.each do |comment| %>
+        <div class="comments">
+            <div class="comment-body">
+                <p> <%= comment.author.name %>: <%= comment.text %> </p>
+            </div>
+        </div>
+    <% end %>
+</div>
