@@ -1,16 +1,4 @@
-<div class="user-container">
-    <div class="user-avatar">
-        <img src="<%= @user.photo %>" alt="<%= @user.name %>" class="user-pic">
-    </div>
-    <div class="user-info">
-        <div class="user-name">
-            <h2>User name: <%= @user.name %></h2>
-        </div>
-        <div class="num-posts">
-            <p> number of posts: <%= @user.posts_counter %> </p>
-        </div>
-    </div>
-</div>
+<%= render @user %>
 
 <div class="user-bio">
     <h4>Bio</h4>
@@ -20,17 +8,9 @@
 <div class="user-posts">
     <h3>Posts</h3>
     <% @user.three_most_recent_posts.each do |post| %>
-        <div class="post-container">
-            <div class="post-title">
-                <h4> <%= post.title %> </h4>
-            </div>
-            <div class="post-body">
-                <p> <%= post.text %> </p>
-            </div>
-            <div class="post-comments">
-                <p> <%= post.comments_counter %> comments <%= post.likes_counter %> likes </p>
-            </div>
-        </div>
+        <%= link_to user_post_path(@user.id, post.id), {:class => "link_class"} do %>
+            <%= render post %>
+        <% end %>
     <% end %>
 </div>
 

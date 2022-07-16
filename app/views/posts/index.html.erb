@@ -1,16 +1,9 @@
+<%= render @user %>
 
 <% @posts.each do |post| %>
-  <div class="post-container">
-    <div class="post-title">
-      <h4> <%= post.title %> </h4>
-    </div>
-    <div class="post-body">
-      <p> <%= post.text %> </p>
-    </div>
-    <div class="post-comments">
-      <p> <%= post.comments_counter %> comments <%= post.likes_counter %> likes </p>
-    </div>
-  </div>
+  <%= link_to user_post_path(@user.id, post.id), {:class => "link_class"} do %>
+    <%= render post %>
+  <% end %>
 
   <div class="comments">
     <% post.five_most_recent_comments.each do |comment| %>
@@ -25,6 +18,6 @@
 
 <div class="btn-container">
     <button class="see-all-btn">
-        Pagination
+        <li class="link_list_li"><%= link_to "Create Post", new_post_path, class: "link_class" %></li>
     </button>
 </div>
