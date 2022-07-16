@@ -120,6 +120,12 @@ body {
   margin-top: 20px;
 }
 
+.post-comments {
+  align-self: flex-end;
+  display: flex;
+  gap: 20px;
+}
+
 .user-posts {
   display: flex;
   flex-direction: column;
