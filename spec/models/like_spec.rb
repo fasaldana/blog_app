@@ -1,19 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  describe 'validations' do
-    it { should validate_presence_of(:author_id) }
-    it { should validate_presence_of(:post_id) }
-  end
+  user = User.create!(name: 'George', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Super smart')
+  post = Post.create!(author: user, title: 'Title', text: 'sweet text!')
 
-  describe 'relationships' do
-    it { should belong_to(:author) }
-    it { should belong_to(:post) }
-  end
+  Like.create(author: user, post: post)
 
-  describe 'like Model Properties' do
-    it 'should have a body attribute' do
-      expect(Like.new).to respond_to(:body)
-    end
+  it 'should increment post likes_counter' do
+    counter = post.likes_counter
+    expect(post.likes_counter).to eq(counter)
   end
 end
