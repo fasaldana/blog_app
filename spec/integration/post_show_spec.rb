@@ -7,7 +7,7 @@ RSpec.describe 'Post show', type: :system do
 
   it 'can see the post title/number' do
     visit user_post_path(user, post)
-    expect(page.body).to include("#{post.title}")
+    expect(page.body).to include(post.title.to_s)
   end
 
   it 'can see the post user name' do
