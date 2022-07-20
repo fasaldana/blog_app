@@ -1,20 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe 'validations' do
-    it { should validate_presence_of(:author_id) }
-    it { should validate_presence_of(:post_id) }
-    it { should validate_presence_of(:body) }
+  user = User.create!(name: 'Aaron', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico',
+                      posts_counter: 0)
+  post = Post.create!(title: 'Post 1', text: 'Content 1', author: user, comments_counter: 0, likes_counter: 0)
+  subject { Comment.create!(text: 'Comment 1', author: user, post: post) }
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
   end
 
-  describe 'relationships' do
-    it { should belong_to(:author) }
-    it { should belong_to(:post) }
+  it 'is not valid without a author' do
+    subject.author = nil
+    expect(subject).to_not be_valid
   end
 
-  describe 'comment Model Properties' do
-    it 'should have a body attribute' do
-      expect(Comment.new).to respond_to(:body)
-    end
+  it 'is not valid without a post' do
+    subject.post = nil
+    expect(subject).to_not be_valid
   end
 end
