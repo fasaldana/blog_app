@@ -17,14 +17,14 @@ class Post < ApplicationRecord
   def update_comment_count
     post.find_all_by_id(post_id).update(comments_counter: post.comments.count)
   end
-  
+
   private
-  
+
   def default_values
     self.comments_counter ||= 0
     self.likes_counter ||= 0
   end
-  
+
   def update_post_count
     author.update(posts_counter: author.posts.count)
   end
