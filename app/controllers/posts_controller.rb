@@ -28,4 +28,16 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :text)
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    @likes = @post.likes
+    @likes.destroy_all
+    @comments.destroy_all
+    @post.destroy
+    current_user.decrement(:posts_counter)
+    current_user.save
+    redirect_to user_posts_path(current_user)
+  end
 end
