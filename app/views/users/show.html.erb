@@ -18,4 +18,5 @@
     <button class="see-all-btn">
         <%= link_to 'See all posts', user_posts_path(@user) %>
     </button>
+    <%= button_to 'sign out', destroy_user_session_path, method: :delete %>
 </div>
