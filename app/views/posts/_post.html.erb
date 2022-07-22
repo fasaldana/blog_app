@@ -11,4 +11,7 @@
             <%= liked.submit "Like Post" %>
         <% end %>
     </div>
+    <% if can? :destroy, @post %>
+      <%= button_to "Delete Post", user_post_path(@user, post.id), method: :delete, class: "btn btn-danger" %>
+    <% end %>
 </div>

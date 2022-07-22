@@ -8,6 +8,9 @@
                 <p> <%= comment.author.name %>: <%= comment.text %> </p>
             </div>
         </div>
+        <% if can? :destroy, Comment.find_by(author_id: comment.author_id, post_id: comment.post_id) %>
+            <%= button_to 'Delete', user_post_comment_path(comment.author_id, comment.post_id, comment.id), method: :delete, class: 'btn btn-danger' %>
+        <% end %>
     <% end %>
 </div>
 
